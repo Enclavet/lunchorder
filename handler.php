@@ -258,9 +258,9 @@ function sendMailPayment($smallorder_id, $conn,$total,$count) {
 
   $boundary = sha1(date('r', time()));
 
-  $mailheader = "From: Andrew Lee <Andrew.Lee@cshs.org>\r\n" .
+  $mailheader = "From: " . $config['email']['from'] . "\r\n" .
     "Mime-Version: 1.0\r\n" .
-    "Reply-To: Andrew.Lee@cshs.org\r\n";
+    "Reply-To: " . $config['email']['from'] . "\r\n";
 
   $mailheader .= "X-Mailer: PHP/" . phpversion() . "\r\n" .
     "Content-Type: multipart/mixed; boundary=\"PHP-mixed-{$boundary}\"\r\n";
@@ -366,9 +366,9 @@ function sendMail($smallorder_id, $conn) {
 
   $boundary = sha1(date('r', time()));
 
-  $mailheader = "From: Andrew Lee <Andrew.Lee@cshs.org>\r\n" .
+  $mailheader = "From: " . $config['email']['from'] . "\r\n" .
     "Mime-Version: 1.0\r\n" .
-    "Reply-To: Andrew.Lee@cshs.org\r\n";
+    "Reply-To: " . $config['email']['from'] . "\r\n";
 
   $mailheader .= "X-Mailer: PHP/" . phpversion() . "\r\n" .
     "Content-Type: multipart/mixed; boundary=\"PHP-mixed-{$boundary}\"\r\n";
