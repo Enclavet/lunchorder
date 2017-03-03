@@ -1,6 +1,5 @@
 <?php
 require_once(realpath(dirname(__FILE__) . "/config.php"));
-
 date_default_timezone_set($config['timezone']);
 
 // Create connection
@@ -238,6 +237,8 @@ if(isset($_POST['pay_remind_email'])) {
 }
 
 function sendMailPayment($smallorder_id, $conn,$total,$count) {
+  global $config;
+
   $sql = "SELECT mainorder.name as name,mainorder.url as url,mainorder.date as date,mainorder.familystyle as familystyle,smallorder.email as email,smallorder.order_desc as order_desc,smallorder.price as price FROM smallorder INNER JOIN mainorder ON smallorder.order_id = mainorder.order_id WHERE smallorder.smallorder_id='".$smallorder_id."';";
   $result = $conn->query($sql);
   $row = $result->fetch_assoc();
@@ -355,6 +356,8 @@ function sendMailPayment($smallorder_id, $conn,$total,$count) {
 }
 
 function sendMail($smallorder_id, $conn) {
+  global $config;
+
   $sql = "SELECT mainorder.name as name,mainorder.url as url,mainorder.date as date,smallorder.email as email,smallorder.order_desc as order_desc,smallorder.price as price FROM smallorder INNER JOIN mainorder ON smallorder.order_id = mainorder.order_id WHERE smallorder.smallorder_id='".$smallorder_id."';";
   $result = $conn->query($sql);
   $row = $result->fetch_assoc();
@@ -489,6 +492,7 @@ function sendMail($smallorder_id, $conn) {
 }
 
 function convert_smart_quotes($string) {
+  global $config;
 
    $chr_map = array(
       // Windows codepage 1252
