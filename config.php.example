@@ -1,0 +1,31 @@
+<?php
+
+$config = array(
+   "baseUrl" => "example.com",
+   "paypal" => "https://www.paypal.me/exampleaccount", 
+   "venmo"  => "https://venmo.com/?txn=pay&audience=private&recipients=exampleaccount",
+
+   "email" => array(
+      "from" => "somebody@example.com"
+   ),
+
+   "db" => array(
+      "server" => "lunchorder.example.com",
+      "user" => "someuser", 
+      "pass"  => "somepassword",
+      "dbname"  => "lunchorder"
+   ),
+
+
+   "timezone" => "America/Los_Angeles",
+
+   "paths" => array(
+      "images"=> array(
+         "emaillogo"  => "images/emaillogo.png"
+      )
+   )
+
+);
+
+?>
+
