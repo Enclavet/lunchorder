@@ -173,10 +173,10 @@ if(isset($_GET['smallorderid'])) {
   print "<ul>";
   print "<li>Do not order for someone else. Only order for yourself.</li>";
   print "<li>Do not add anyone to the group. Keep this manageable.</li>";
-  print "<li>There is a 10% surchrage that will go the driver/wingman. This is just a starting point and can increase/decrease depending on the situation.</li>";
-  print "<li>Orders must be in at 10:30AM the day of the Lunch. Any orders after that will be ignored.</li>";
-  print "<li>You can pay with Paypal or Cash. If using Cash, round up your payment due to the nearest integer.</li>";
-  print "<li>There is a honor system with the price. Any abuse will get you banned from the group.</li>";
+  print "<li>There is a 10% surcharge that will go the driver/wingman. This is just a starting point and can increase/decrease depending on the situation.</li>";
+  print "<li>Orders must be in at 10:30AM the day of the lunch. Any orders after that will be ignored.</li>";
+  print "<li>You can pay with Paypal or Cash. If using Cash, round up your payment to the nearest integer.</li>";
+  print "<li>There is an honor system with the price. Any abuse will get you banned from the group.</li>";
   print "</ul>";
 
   print "<h1>Place Order</h1>";
