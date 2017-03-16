@@ -52,7 +52,7 @@ function submit_order() {
   order_list=clean_order_list_arr.join(",");
   order_list=encodeURI(order_list);
   $.ajax({
-    url: "../handler.php",
+    url: "/handler.php",
 	type: "POST",
 	dataType: "json",
 	data: "order_name="+order_name+"&order_url="+order_url+"&order_date="+order_date+"&emaillist="+order_list+"&familystyle="+family_style+"&lock="+lock,
@@ -72,7 +72,7 @@ function submit_order() {
 
 function copy_order(order_id) {
     $.ajax({
-      url: "../handler.php",
+      url: "/handler.php",
 	  type: "POST",
 	  dataType: "json",
 	  data: "view_order="+order_id,
@@ -92,7 +92,7 @@ function copy_order(order_id) {
 
 function edit_order(order_id) {
     $.ajax({
-      url: "../handler.php",
+      url: "/handler.php",
 	  type: "POST",
 	  dataType: "json",
 	  data: "view_order="+order_id,
@@ -147,7 +147,7 @@ function edit_order(order_id) {
 
 function toggle_paid(smallorder_id, order_id) {
   $.ajax({
-    url: "../handler.php",
+    url: "/handler.php",
 	type: "POST",
 	dataType: "json",
 	data: "toggle_status="+smallorder_id,
@@ -163,7 +163,7 @@ function toggle_paid(smallorder_id, order_id) {
 
 function toggle_lock(order_id) {
   $.ajax({
-    url: "../handler.php",
+    url: "/handler.php",
 	type: "POST",
 	dataType: "json",
 	data: "toggle_lock="+order_id,
@@ -183,7 +183,7 @@ function get_smallorder_list() {
 
 function delete_order(order_id) {
      $.ajax({
-      url: "../handler.php",
+      url: "/handler.php",
 	  type: "POST",
 	  dataType: "json",
 	  data: "delete_order="+order_id,
@@ -199,7 +199,7 @@ function delete_order(order_id) {
 
 function get_order_list() {
     $.ajax({
-      url: "../handler.php",
+      url: "/handler.php",
 	  type: "POST",
 	  dataType: "json",
 	  data: "get_order_list=1",
@@ -234,7 +234,7 @@ function get_order_list() {
 
 function pay_remind_email(order_id) {
   $.ajax({
-    url: "../handler.php",
+    url: "/handler.php",
 	type: "POST",
 	dataType: "json",
 	data: "pay_remind_email="+order_id,
@@ -249,7 +249,7 @@ function pay_remind_email(order_id) {
 
 function remind_email(order_id) {
   $.ajax({
-    url: "../handler.php",
+    url: "/handler.php",
 	type: "POST",
 	dataType: "json",
 	data: "remind_email="+order_id,
@@ -296,7 +296,7 @@ function add_email_ajax(order_id) {
   order_list=clean_order_list_arr.join(",");
   order_list=encodeURI(order_list);
   $.ajax({
-    url: "../handler.php",
+    url: "/handler.php",
 	type: "POST",
 	dataType: "json",
 	data: "add_email="+order_list+"&order_id="+order_id,

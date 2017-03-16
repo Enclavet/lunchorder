@@ -224,10 +224,23 @@ if(isset($_POST['remind_email'])) {
 
 if(isset($_POST['pay_remind_email'])) {
   $error=0;
-  $sql = "SELECT smallorder_id,SUM(price) as total, COUNT(*) as count FROM smallorder WHERE order_desc != '' AND optout != 'true' AND status = 'Not Paid' AND order_id = '".$_POST['pay_remind_email']."'";
-  $result = $conn->query($sql);
-  while($row = $result->fetch_assoc()) {
-    sendMailPayment($row['smallorder_id'],$conn,$row['total'],$row['count']);
+  $total=0;
+  $count=0;
+
+  $sql_smallorderids = "SELECT smallorder_id FROM smallorder WHERE order_desc != '' AND optout != 'true' AND status = 'Not Paid' AND order_id = '".$_POST['pay_remind_email']."'";
+
+  $sql_order_totals = "SELECT SUM(price) as total, COUNT(*) as count FROM smallorder WHERE order_desc != '' AND optout != 'true' AND status = 'Not Paid' AND order_id = '".$_POST['pay_remind_email']."'";
+
+  $result_smallorderids = $conn->query($sql_smallorderids);
+  $result_order_totals = $conn->query($sql_order_totals);
+
+  while($results = $result_order_totals->fetch_assoc()) {
+     $total = $results['total'];
+     $count = $results['count'];
+  }
+
+  while($row = $result_smallorderids->fetch_assoc()) {
+    sendMailPayment($row['smallorder_id'],$conn,$total,$count);
   }
   if ($error == 0) {
     echo "{\"result\":{\"error\":0}}";
